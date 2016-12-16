@@ -1,0 +1,128 @@
+//positioning mixin depends on bourbon
+@mixin positioning($center: null, $center-y: null, $center-x: null) {
+    position: absolute;
+    @if $center {
+        @include transform(translate(-50%, -50%));
+        left: 50%;
+        top: 50%;
+    }
+    @if $center-y {
+        @include transform(translateY(-50%));
+        top: 50%;
+    }
+    @if $center-x {
+        @include transform(translateX(-50%));
+        left: 50%;
+    }
+}
+
+@mixin vertical-align($block: inline-block, $align: middle) {
+    display: $block;
+    vertical-align: $align;
+}
+
+@mixin virtual($virtual: null, $content: '', $both: null) {
+    @if ($virtual == after) {
+        &:after {
+            content: $content;
+            @content;
+        }
+    } @else if ($virtual == before) {
+        &:before {
+            content: $content;
+            @content;
+        }
+    } @else if ($both == true) {
+        &:before,
+        &:after {
+            content: $content;
+            @content;
+        }
+    } @else {
+        $mixin-virtual-warning: 'Add one of the following parameters $virtual: before/after, $content: null or $both: true/false';
+        @warn $mixin-virtual-warning;
+        content: '#{$mixin-virtual-warning}';
+    }
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+@mixin no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@mixin flexible-grid($elem-class: null) {
+    $db-grid-columns: 12 !default;
+
+    @if ($elem-class != null) {
+        @while $db-grid-columns > 0 {
+            &:first-child {
+                &:nth-last-child(#{$db-grid-columns}),
+                &:nth-last-child(#{$db-grid-columns}) ~ #{$elem-class} {
+                    width: (100% / $db-grid-columns);
+                }
+            }
+            $db-grid-columns: $db-grid-columns - 1;
+        }
+    } @else {
+        @warn 'flexible-grid mixin should contain class or elements name';
+        &:after {
+            content: 'flexible-grid mixin should contain class or elements name';
+        }
+    }
+    @content;
+}
+
+@mixin clearfix($extend: true) {
+    @if ($extend) {
+        @extend %clearfix;
+    } @else {
+        &:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+    }
+}
+
+@mixin reset($reset: true) {
+    @if ($reset) {
+        @extend %reset;
+    } @else {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+%clearfix {
+    @include clearfix($extend: false);
+}
+
+%reset {
+    margin: 0;
+    padding: 0;
+}
+
+%hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.clearfix,
+.wrapper {
+    @include clearfix();
+}

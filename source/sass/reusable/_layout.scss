@@ -1,0 +1,27 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    color: $font-grey;
+    font-family: $font-base;
+    background-color: $white;
+    font-size: $font-base-size;
+}
+
+a {
+    color: $font-grey;
+    cursor: pointer;
+
+    &:hover {
+        color: darken($font-grey, 10%);
+    }
+}
+
+.page {
+    &-container {
+        @include container();
+        position: relative;
+    }
+}

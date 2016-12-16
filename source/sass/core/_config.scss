@@ -1,0 +1,44 @@
+//bourbon config
+$prefix-for-webkit: true;
+$prefix-for-mozilla: true;
+$prefix-for-microsoft: false;
+$prefix-for-opera: false;
+$prefix-for-spec: true;
+
+//global variables
+$font-base: 'Roboto Condensed', sans-serif;
+$font-base-size: 16px;
+
+$susy: (
+        columns: 12,
+        container: 1440px,
+        gutters: 1/4,
+        gutter-position: before,
+        global-box-sizing: border-box
+);
+
+//define media queries pattern using susy-media
+$susy-media: (
+        mobile: (
+                media: screen,
+                max-width: 599px
+        ),
+        phablet:(
+                media: screen,
+                min-width: 600px,
+                max-width: 767px
+        ),
+        tablet:(
+                media: screen,
+                min-width: 768px,
+                max-width: 980px
+        ),
+        allDevices:(
+                media: screen,
+                max-width: 1140px
+        ),
+        desktop: (
+                media: screen,
+                max-width: 1440px
+        )
+);

@@ -1,0 +1,41 @@
+%field-extender {
+    @include vertical-align();
+    @include appearance(none);
+    background-color: $white;
+    border: $border-main;
+    border-radius: 0;
+    color: $font-grey;
+    font-size: 14px;
+    font-weight: 400;
+    height: 42px;
+    padding: 0 15px;
+    width: 100%;
+
+    &:focus {
+        outline: none;
+
+        + .form-validation-error {
+            span {
+                visibility: visible;
+            }
+        }
+    }
+}
+
+.field {
+    &-holder {
+        @include clearfix();
+        position: relative;
+    }
+
+    &-text {
+        @extend %field-extender;
+        @include placeholder() {
+            color: #909090;
+        };
+
+        &:focus {
+            border-color: $grey;
+        }
+    }
+}
