@@ -1,28 +1,3 @@
-.autocomplete {
-    position: relative;
-
-    &-suggestions {
-        background-color: $grey-l1;
-        display: none;
-        margin-top: 5px;
-        padding: 10px 20px;
-        width: 100%;
-
-        &.is-active {
-            display: block;
-        }
-    }
-
-    &-suggestion {
-    	border-bottom: 1px solid $grey-l2;
-    	padding: 3px 0;
-
-    	&:last-of-type {
-    		border: none;
-    	}
-
-        &.is-selected {
-            background-color: $grey;
-        }
-    }
+.auto-complete {
+	
 }

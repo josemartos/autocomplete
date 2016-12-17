@@ -1,10 +1,12 @@
 import gulp from 'gulp';
+import plugins from 'gulp-load-plugins';
 import sass from 'gulp-sass';
 import cleanCss from 'gulp-clean-css';
 import sourcemaps from 'gulp-sourcemaps';
 import uglify from 'gulp-uglify';
 import gutil from 'gulp-util';
 import concat from 'gulp-concat';
+import rename from 'gulp-rename';
 import jshint from 'gulp-jshint';
 import runSequence from 'run-sequence';
 
@@ -39,12 +41,12 @@ gulp.task('compile-sass', () => {
 });
 
 gulp.task('run-jshint', function() {
-    gulp.src(paths.scripts.source)
-        .pipe(jshint({esversion: 6}))
-        .pipe(jshint.reporter('jshint-stylish', {verbose: true}))
+  return gulp.src(paths.scripts.source)
+    .pipe(jshint({esversion: 6}))
+    .pipe(jshint.reporter('jshint-stylish', {verbose: true}))
 });
 
-gulp.task('compile-scripts', function() {
+gulp.task('compile-js', function() {
     browserify({ debug: true })
         .transform(babelify)
         .require("./source/scripts/app.js", { entry: true })
@@ -57,9 +59,9 @@ gulp.task('compile-scripts', function() {
 gulp.task('watch', () => {
     gulp.watch(paths.sass.source, ['compile-sass']);
     gulp.watch(paths.scripts.source, ['run-jshint']);
-    gulp.watch(paths.scripts.source, ['compile-scripts']);
+    gulp.watch(paths.scripts.source, ['compile-js']);
 });
 
 gulp.task('build', function () {
-    runSequence('compile-sass', 'run-jshint', 'compile-scripts');
+    runSequence('compile-sass', 'run-jshint', 'compile-js');
 });
