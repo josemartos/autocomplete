@@ -7,7 +7,8 @@ export default {
         return size;
     },
 
+    // Escape special characters
     escapeRegExp: str => {
         return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-    },
+    }
 };

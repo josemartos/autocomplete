@@ -42,9 +42,8 @@ export class AutoComplete {
         });
     }
 
-    // Highlights the written part on the string
-    // Escape special characters
-    renderString (str, index, replacement) {
+    // Highlights the written part on the suggestion
+    renderSuggestion (str, index, replacement) {
         let replacementLength = replacement.length,
             bold = "<b>" + str.substr(index, replacementLength) + "</b>";
 
@@ -77,9 +76,9 @@ export class AutoComplete {
 
             // The string is into the element
             if (entryIndex !== -1) {
-                let highlight = this.renderString(element, entryIndex, query);
+                let suggestion = this.renderSuggestion(element, entryIndex, query);
 
-                suggestions += `<li data-suggestion-id='${cont}' data-suggestion-content="${element}" class="js-autocomplete-suggestion autocomplete-suggestion">${highlight}</li>`;
+                suggestions += `<li data-suggestion-id='${cont}' data-suggestion-content="${element}" class="js-autocomplete-suggestion autocomplete-suggestion">${suggestion}</li>`;
                 cont = cont + 1;
             }
         }
