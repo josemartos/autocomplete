@@ -1,6 +1,5 @@
 # autocomplete
 
-<<<<<<< HEAD
 Plain JavaScript autocomplete with some ES6 sugar
 
 ## description
@@ -26,6 +25,3 @@ Open in a browser
 ```sh
 web/index.html
 ```
-=======
-Vanilla JavaScript autocomplete with some ES6 sugar
->>>>>>> 398a6f7b19dbba57227ce6c04a6e89d787cbb5d9
