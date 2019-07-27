@@ -91,7 +91,6 @@ input[type="password"],
 textarea,
 select,
 button {
-    //@include appearance(none);
     font-family: $font-base;
     margin: 0;
     -webkit-font-smoothing: antialiased;

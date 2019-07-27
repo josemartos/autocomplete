@@ -1,4 +1,4 @@
 // Pages
-import "home";
+import "./pages/home";
 
 // ...

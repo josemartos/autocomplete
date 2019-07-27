@@ -1,4 +1,4 @@
-import {AutoComplete} from "autoComplete";
+import { AutoComplete } from "../common/auto-complete";
 
 const autoComplete = new AutoComplete({
     el: 'js-autocomplete',

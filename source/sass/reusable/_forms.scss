@@ -1,6 +1,5 @@
 %field-extender {
     @include vertical-align();
-    @include appearance(none);
     background-color: $white;
     border: $border-main;
     border-radius: 0;

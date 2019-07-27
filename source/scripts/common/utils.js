@@ -2,13 +2,17 @@ export default {
     objectSize: obj => {
         let size = 0;
         for (let key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
+            let hasKey = Object.prototype.hasOwnProperty.call(obj, key);
+            
+            if (hasKey) {
+                size++
+            }
         }
         return size;
     },
 
     // Escape special characters
     escapeRegExp: str => {
-        return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+        return str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
     }
 };
