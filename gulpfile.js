@@ -2,7 +2,6 @@ const { dest, task, src, watch, series, parallel } = require('gulp');
 const sass = require('gulp-sass');
 const cleanCss = require('gulp-clean-css');
 const sourcemaps = require('gulp-sourcemaps');
-const gutil = require('gulp-util');
 const concat = require('gulp-concat');
 const eslint = require('gulp-eslint');
 const browserify = require('browserify');
