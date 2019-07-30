@@ -1,14 +1,10 @@
-# autocomplete
+# Plain JavaScript autocomplete
 
-Plain JavaScript autocomplete with some ES6 sugar
+> ES6, Browserify, Sass, Gulp
 
 ## description
 
 Created for practising purposes. The auto-complete.js component could be more customisable.
-
-## tech stack
-
-ES6, Browserify, Sass, Gulp
 
 ## setup
 
