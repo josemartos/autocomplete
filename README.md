@@ -4,7 +4,7 @@
 
 ## description
 
-Created for practising purposes. The auto-complete.js component could be more customisable.
+Created for practising purposes. The auto-complete.js component could be more customisable. Initially created in 2016. Dependencies updated in 2019.
 
 ## setup
 
